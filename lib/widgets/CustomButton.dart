@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -32,7 +33,7 @@ class CustomButton extends StatelessWidget {
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         onPressed: onTap,
-      ),
+      ).animate().scale(duration: 500.ms).fadeIn(),
     );
   }
 }

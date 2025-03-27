@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:scan_mate/screens/HomeScreen.dart';
 
 void main() {
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey,
+        scaffoldBackgroundColor: Colors.white24,
         primaryColor: Color(0xFF37474F),
         appBarTheme: AppBarTheme(backgroundColor: Colors.blue),
         textTheme: TextTheme(

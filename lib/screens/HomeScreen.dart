@@ -13,7 +13,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Scan Mate"),
+        title: const Text(
+            "Scan Mate",
+          style: TextStyle(fontSize: 30.0, color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
       ),

@@ -64,48 +64,64 @@ class _ScannerScreenState extends State<ScannerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Scanner")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            scannedImage != null
-                ? Image.file(scannedImage!)
-                : const Text("No image scanned yet"),
-            const SizedBox(height: 20),
-
-            // Scan Buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () => scanImage(ImageSource.camera),
-                  child: const Text("Scan (Camera)"),
+      appBar: AppBar(
+        title: const Text("Scanner", style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: scannedImage != null
+                ? InteractiveViewer(
+              panEnabled: true, // Allows panning when zoomed
+              boundaryMargin: const EdgeInsets.all(20),
+              minScale: 1.0, // Default scale (no zoom initially)
+              maxScale: 3.0, // Allows zoom up to 3x
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Image.file(
+                  scannedImage!,
+                  fit: BoxFit.contain, // Ensures full visibility initially
+                  width: MediaQuery.of(context).size.width,
                 ),
+              ),
+            )
+                : const Center(child: Text("No image scanned yet")),
+          ),
+
+          // Action Buttons
+          Container(
+            padding: const EdgeInsets.all(10),
+            color: Colors.black87,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => scanImage(ImageSource.camera),
+                      child: const Text("Scan (Camera)"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => scanImage(ImageSource.gallery),
+                      child: const Text("Scan (Gallery)"),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
                 ElevatedButton(
-                  onPressed: () => scanImage(ImageSource.gallery),
-                  child: const Text("Scan (Gallery)"),
+                  onPressed: saveImage,
+                  child: const Text("Save Image"),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: shareImage,
+                  child: const Text("Share"),
                 ),
               ],
             ),
-
-            const SizedBox(height: 10),
-
-            // Save Button
-            ElevatedButton(
-              onPressed: saveImage,
-              child: const Text("Save Image"),
-            ),
-
-            const SizedBox(height: 10),
-
-            // Share Button
-            ElevatedButton(
-              onPressed: shareImage,
-              child: const Text("Share"),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

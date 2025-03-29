@@ -41,7 +41,11 @@ class _RecognizeScreenState extends State<RecognizeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Recognize Text"), backgroundColor: Colors.blueAccent),
+      appBar: AppBar(
+        title: const Text("Recognize Text", style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white), // Change back arrow color to white
+        backgroundColor: Colors.blueAccent,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -54,10 +58,15 @@ class _RecognizeScreenState extends State<RecognizeScreen> {
               onPressed: _pickImage,
             ),
             const SizedBox(height: 20),
-            Text(
-              _recognizedText,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            SizedBox(
+              height: 200, // Fixed height for scroll area
+              child: SingleChildScrollView(
+                child: Text(
+                  _recognizedText,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
           ],
         ),

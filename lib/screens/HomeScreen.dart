@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-            "Scan Mate",
+          "Scan Mate",
           style: TextStyle(fontSize: 30.0, color: Colors.white),
         ),
         centerTitle: true,
@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
               icon: Icons.auto_fix_high,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const EnhanceScreen()),
+                MaterialPageRoute(builder: (context) => EnhanceScreen()),
               ),
             ).animate().fadeIn(duration: 700.ms),
           ],

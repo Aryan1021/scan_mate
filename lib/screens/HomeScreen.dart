@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'ScannerScreen.dart';
 import 'RecognizeScreen.dart';
 import 'EnhanceScreen.dart';
 import '../widgets/CustomButton.dart';
+import '../theme/theme_provider.dart'; // Import ThemeProvider
 import 'package:lottie/lottie.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -11,6 +13,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context); // Access ThemeProvider
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -19,6 +23,28 @@ class HomeScreen extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+              onTap: () {
+                themeProvider.toggleTheme(); // Toggle theme
+              },
+              child: Container(
+                width: 35,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white.withOpacity(0.2), // Semi-transparent background
+                ),
+                child: Icon(
+                  themeProvider.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Column(

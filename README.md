@@ -1,16 +1,29 @@
-# scan_mate
+# 📸 Scan Mate
 
-A new Flutter project.
+Scan Mate is a powerful document scanning and text recognition app built with **Flutter**. It allows users to scan documents, recognize text, and enhance images with a smooth and intuitive UI.
 
-## Getting Started
+## 🚀 Features
 
-This project is a starting point for a Flutter application.
+- 📷 **Scan Document** – Capture documents using the camera.
+- 🔍 **Recognize Text** – Extract text from images using OCR.
+- 🎨 **Enhance Image** – Improve image clarity with enhancement tools.
+- 🌙 **Dark Mode Support** – Easily switch between light and dark modes.
+- ✨ **Smooth Animations** – Lottie animations and Flutter Animate for a better UI experience.
 
-A few resources to get you started if this is your first Flutter project:
+## 📦 Dependencies
+This project uses:
+- **Provider** (for state management)
+- **Lottie** (for animations)
+- **Flutter Animate** (for smooth UI animations)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Check `pubspec.yaml` for all dependencies.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork this repository and submit a pull request.
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+---
+
+🔗 **GitHub Repository:** [Scan Mate](https://github.com/Aryan1021/scan_mate)
